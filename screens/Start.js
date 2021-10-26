@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Button, Text, View, StyleSheet, Dimensions, SafeAreaView, Image, Alert } from 'react-native';
 import { image, icon } from '../constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { set } from 'react-native-reanimated';
 
 const Start = ({navigation}) => {
 
@@ -58,7 +57,7 @@ const Start = ({navigation}) => {
         <View>
           <Image
           style = {styles.logo}
-          source = {image.app_Logo}
+          source = {image.Gojaze_Logo}
           />
         </View>
       );
@@ -77,8 +76,8 @@ const Start = ({navigation}) => {
 
 const styles = StyleSheet.create({
   logo: {
-    width: Dimensions.get('window').width * 0.7,
-    height: Dimensions.get('window').width * 0.4,
+    width: 200,
+    height: 200,
   },
   logoContainer: {
     width: Dimensions.get('window').width,
