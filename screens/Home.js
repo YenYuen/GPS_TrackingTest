@@ -36,7 +36,6 @@ const getLanguage = async () => {
 }
 
 const langLocator = () => {
-  let locator;
   if(language == 'english') {
       setLangLocator('Locator');
   }
@@ -49,11 +48,9 @@ const langLocator = () => {
   else if(language == 'tamil') {
       setLangLocator('கண்டுபிடிப்பான்');
   }
-  return(locator);
 }
 
 const langHotlines = () => {
-  let hotlines;
   if(language == 'english') {
       setLangHotlines('Hotlines');
   }
@@ -66,11 +63,9 @@ const langHotlines = () => {
   else if(language == 'tamil') {
       setLangHotlines('ஹாட்லைன்கள்');
   }
-  return(hotlines);
 }
 
 const langRoadtax = () => {
-  let roadtax;
   if(language == 'english') {
       setLangRoadtax('Roadtax');
   }
@@ -83,7 +78,6 @@ const langRoadtax = () => {
   else if(language == 'tamil') {
       setLangRoadtax('சாலை வரி');
   }
-  return(roadtax);
 }
 
 const HomeNav = [

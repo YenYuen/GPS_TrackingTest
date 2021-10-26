@@ -1,14 +1,12 @@
 import * as React from 'react';
 import { Button, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking } from 'react-native';
 
-const EditProfile = ()=> {
+const InsuranceStatus = ()=> {
     return(
         <View>
-            <Text>Edit Profile</Text>
+            <Text>Insurance Status</Text>
         </View>
     );
 }
 
-export default EditProfile;
-
-//Azira
+export default InsuranceStatus;

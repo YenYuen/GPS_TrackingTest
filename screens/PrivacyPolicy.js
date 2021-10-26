@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Button, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking } from 'react-native';
 
-const EditProfile = ()=> {
+const PrivacyPolicy = ()=> {
     return(
         <View>
-            <Text>Edit Profile</Text>
+            <Text>Privacy Policy</Text>
         </View>
     );
 }
 
-export default EditProfile;
+export default PrivacyPolicy;
 
 //Azira

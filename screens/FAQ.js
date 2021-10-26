@@ -18,18 +18,18 @@ const renderFAQ = () => {
         langA4();
         langQ5();
         langA5();
-        // langQ6();
-        // langA6();
-        // langQ7();
-        // langA7();
-        // langQ8();
-        // langA8();
-        // langQ9();
-        // langA9();
-        // langQ10();
-        // langA10();
-        // langQ11();
-        // langA11();
+        langQ6();
+        langA6();
+        langQ7();
+        langA7();
+        langQ8();
+        langA8();
+        langQ9();
+        langA9();
+        langQ10();
+        langA10();
+        langQ11();
+        langA11();
         
     });
 
@@ -271,6 +271,156 @@ const renderFAQ = () => {
         }
       }
 
+      const langQ7 = () => {
+        if(language == 'english') {
+            setLangQ7('How can I track my vehicle?');
+        }
+        else if(language == 'malay') {
+            setLangQ7('Bagaimanakah saya boleh mengesan kenderaan saya?');
+        }
+        else if(language == 'chinese') {
+            setLangQ7("如何追踪我的车辆？");
+        }
+        else if(language == 'tamil') {
+            setLangQ7('எனது வாகனத்தை எவ்வாறு கண்காணிப்பது?');
+        }
+      }
+
+      const langA7 = () => {
+        if(language == 'english') {
+            setLangA7('To track your vehicle, users can place an alert in the GPS page');
+        }
+        else if(language == 'malay') {
+            setLangA7('Untuk menjejak kenderaan anda, pengguna boleh meletakkan amaran dalam halaman GPS');
+        }
+        else if(language == 'chinese') {
+            setLangA7("要跟踪您的车辆，用户可以在 GPS 页面中放置警报");
+        }
+        else if(language == 'tamil') {
+            setLangA7('உங்கள் வாகனத்தைக் கண்காணிக்க, பயனர்கள் ஜிபிஎஸ் பக்கத்தில் எச்சரிக்கையை வைக்கலாம்');
+        }
+      }
+
+      const langQ8 = () => {
+        if(language == 'english') {
+            setLangQ8('What is the function of the Insurance page?');
+        }
+        else if(language == 'malay') {
+            setLangQ8('Apakah fungsi halaman Insurans?');
+        }
+        else if(language == 'chinese') {
+            setLangQ8("保险页面的功能是什么？");
+        }
+        else if(language == 'tamil') {
+            setLangQ8('காப்பீட்டு பக்கத்தின் செயல்பாடு என்ன?');
+        }
+      }
+
+      const langA8 = () => {
+        if(language == 'english') {
+            setLangA8('To track your vehicle, users can place an alert in the GPS page');
+        }
+        else if(language == 'malay') {
+            setLangA8('Fungsi halaman Insurans dalam aplikasi ini adalah untuk menyediakan cara mudah untuk pengguna mengetahui tentang pakej insurans serta terus menghubungi syarikat insurans');
+        }
+        else if(language == 'chinese') {
+            setLangA8("此应用中保险页面的作用是为用户提供一种简单的方式来了解保险套餐以及直接联系保险公司");
+        }
+        else if(language == 'tamil') {
+            setLangA8('இந்த பயன்பாட்டில் உள்ள இன்சூரன்ஸ் பக்கத்தின் செயல்பாடானது, பயனர்கள் காப்பீட்டுத் தொகுப்பைப் பற்றியும், காப்பீட்டு நிறுவனத்தை நேரடியாகத் தொடர்புகொள்வதற்கும் எளிதான வழியை வழங்குவதாகும்.');
+        }
+      }
+
+      const langQ9 = () => {
+        if(language == 'english') {
+            setLangQ9('What if I don\'t have any Insurance, will I still be able to use the application?');
+        }
+        else if(language == 'malay') {
+            setLangQ9('Bagaimana jika saya tidak mempunyai sebarang Insurans, adakah saya masih boleh menggunakan aplikasi tersebut?');
+        }
+        else if(language == 'chinese') {
+            setLangQ9("如果我没有任何保险，我还能使用该应用程序吗？");
+        }
+        else if(language == 'tamil') {
+            setLangQ9('என்னிடம் இன்சூரன்ஸ் இல்லை என்றால், நான் இன்னும் விண்ணப்பத்தைப் பயன்படுத்த முடியுமா?');
+        }
+      }
+
+      const langA9 = () => {
+        if(language == 'english') {
+            setLangA9('Yes, because the application has other functions that do not require insurance');
+        }
+        else if(language == 'malay') {
+            setLangA9('Ya, kerana aplikasi mempunyai fungsi lain yang tidak memerlukan insurans');
+        }
+        else if(language == 'chinese') {
+            setLangA9("是的，因为应用程序有其他不需要保险的功能");
+        }
+        else if(language == 'tamil') {
+            setLangA9('ஆம், ஏனெனில் பயன்பாட்டில் காப்பீடு தேவையில்லாத பிற செயல்பாடுகள் உள்ளன');
+        }
+      }
+
+      const langQ10 = () => {
+        if(language == 'english') {
+            setLangQ10('How to change my profile details in this application?');
+        }
+        else if(language == 'malay') {
+            setLangQ10('Bagaimana untuk menukar butiran profil saya dalam aplikasi ini?');
+        }
+        else if(language == 'chinese') {
+            setLangQ10("如何在此应用程序中更改我的个人资料详细信息？");
+        }
+        else if(language == 'tamil') {
+            setLangQ10('இந்த பயன்பாட்டில் எனது சுயவிவர விவரங்களை எவ்வாறு மாற்றுவது?');
+        }
+      }
+
+      const langA10 = () => {
+        if(language == 'english') {
+            setLangA10('The user can change their profile details by selecting Edit profile in the Profile tab');
+        }
+        else if(language == 'malay') {
+            setLangA10('Pengguna boleh menukar butiran profil mereka dengan memilih Edit profil dalam tab Profil');
+        }
+        else if(language == 'chinese') {
+            setLangA10("用户可以通过在“配置文件”选项卡中选择“编辑配置文件”来更改其配置文件详细信息");
+        }
+        else if(language == 'tamil') {
+            setLangA10('சுயவிவரத் தாவலில் சுயவிவரத்தைத் திருத்து என்பதைத் தேர்ந்தெடுப்பதன் மூலம் பயனர் தனது சுயவிவர விவரங்களை மாற்றலாம்');
+        }
+      }
+
+      const langQ11 = () => {
+        if(language == 'english') {
+            setLangQ11('Can I search for an intersection of streets and not by address?');
+        }
+        else if(language == 'malay') {
+            setLangQ11('Bolehkah saya mencari persimpangan jalan dan bukan dengan alamat?');
+        }
+        else if(language == 'chinese') {
+            setLangQ11("我可以搜索街道的交叉路口而不是按地址吗？");
+        }
+        else if(language == 'tamil') {
+            setLangQ11('முகவரி மூலம் அல்லாமல் தெருக்களின் குறுக்குவெட்டைத் தேடலாமா?');
+        }
+      }
+
+      const langA11 = () => {
+        if(language == 'english') {
+            setLangA11('Yes, in the GPS search bar, entering the street name or number of streets will work as the application will be using the Google map API');
+        }
+        else if(language == 'malay') {
+            setLangA11('Ya, dalam bar carian GPS, memasukkan nama jalan atau bilangan jalan akan berfungsi kerana aplikasi akan menggunakan API peta Google');
+        }
+        else if(language == 'chinese') {
+            setLangA11("是的，在 GPS 搜索栏中，输入街道名称或街道数量将起作用，因为该应用程序将使用 Google 地图 API");
+        }
+        else if(language == 'tamil') {
+            setLangA11('ஆம், ஜிபிஎஸ் தேடல் பட்டியில், தெருவின் பெயர் அல்லது தெருக்களின் எண்ணிக்கையை உள்ளிடுவது வேலை செய்யும், ஏனெனில் பயன்பாடு Google வரைபட API ஐப் பயன்படுத்தும்');
+        }
+      }
+
     const FAQData = [
         {
             id: 'f1',
@@ -304,28 +454,28 @@ const renderFAQ = () => {
         },
         {
             id: 'f7',
-            question: 'How can I track my vehicle?',
-            answer: 'To track your vehicle, users can place an alert in the GPS page',
+            question: langq7,
+            answer: langa7,
         },
         {
             id: 'f8',
-            question: 'What is the function of the Insurance page?',
-            answer: 'The funtion of the Insurance page in this application is to provide an easy way for users to know about the insurance package as well as directly contacting the insurance company',
+            question: langq8,
+            answer: langa8,
         },
         {
             id: 'f9',
-            question: 'What if I don\'t have any Insurance, will I still be able to use the application?',
-            answer: 'Yes, because the application has other functions that do not require insurance',
+            question: langq9,
+            answer: langa9,
         },
         {
             id: 'f10',
-            question: 'How to change my profile details in this application?',
-            answer: 'The user can change their profile details by selecting Edit profile in the Profile tab',
+            question: langq10,
+            answer: langa10,
         },
         {
             id: 'f11',
-            question: 'Can I search for an intersection of streets and not by address?',
-            answer: 'Yes, in the GPS search bar, entering the street name or number of streets will work as the application will be using the Google map API',
+            question: langq11,
+            answer: langa11,
         },
     ]
 

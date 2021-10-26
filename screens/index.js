@@ -1,4 +1,6 @@
 import Start from './Start.js';
+import Login from './Login.js';
+import Register from './Register.js';
 import Home from './Home.js';
 import GPS from './GPS.js';
 import Insurance from './Insurance.js';
@@ -11,9 +13,16 @@ import EditProfile from './EditProfile.js';
 import FAQ from './FAQ.js';
 import AboutUs from './AboutUs.js';
 import ChangeLanguage from './ChangeLanguage.js';
+import ChangePassword from './ChangePassword.js';
+import PrivacyPolicy from './PrivacyPolicy.js';
+import InsuranceStatus from './InsuranceStatus.js';
+import ClaimInsurance from './ClaimInsurance.js';
+import Towing from './Towing.js';
 
 export {
     Start,
+    Login,
+    Register,
     Home,
     GPS,
     Insurance,
@@ -26,4 +35,9 @@ export {
     FAQ,
     AboutUs,
     ChangeLanguage,
+    ChangePassword,
+    PrivacyPolicy,
+    InsuranceStatus,
+    ClaimInsurance,
+    Towing,
 };

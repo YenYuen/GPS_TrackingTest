@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Button, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking } from 'react-native';
 
-const EditProfile = ()=> {
+const ChangePassword = ()=> {
     return(
         <View>
-            <Text>Edit Profile</Text>
+            <Text>Change Password</Text>
         </View>
     );
 }
 
-export default EditProfile;
+export default ChangePassword;
 
-//Azira
+//Nurul
