@@ -12,9 +12,10 @@ import Settings from './Settings.js';
 import EditProfile from './EditProfile.js';
 import FAQ from './FAQ.js';
 import AboutUs from './AboutUs.js';
+import PrivacyPolicy from './PrivacyPolicy.js';
+import Notifications from './Notifications.js';
 import ChangeLanguage from './ChangeLanguage.js';
 import ChangePassword from './ChangePassword.js';
-import PrivacyPolicy from './PrivacyPolicy.js';
 import InsuranceStatus from './InsuranceStatus.js';
 import ClaimInsurance from './ClaimInsurance.js';
 import Towing from './Towing.js';
@@ -34,9 +35,10 @@ export {
     EditProfile,
     FAQ,
     AboutUs,
+    PrivacyPolicy,
+    Notifications,
     ChangeLanguage,
     ChangePassword,
-    PrivacyPolicy,
     InsuranceStatus,
     ClaimInsurance,
     Towing,

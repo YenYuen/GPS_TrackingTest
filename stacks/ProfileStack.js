@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Home, GPS, Insurance, Profile, Settings, EditProfile, FAQ, AboutUs, ChangeLanguage } from '../screens';
+import { Home, GPS, Insurance, Profile, Settings, EditProfile, FAQ, AboutUs, PrivacyPolicy, Notifications, ChangeLanguage, ChangePassword } from '../screens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const StackScreens = createNativeStackNavigator();
@@ -281,6 +281,40 @@ function ProfileStack() {
                 }
             }
             />
+            <StackScreens.Screen name='PrivacyPolicy' component={PrivacyPolicy}
+            options = {
+                {
+                    headerStyle: {
+                        backgroundColor: '#710193',
+                    },
+                    headerTitleStyle: {
+                        color: '#FFFFFF',
+                        fontWeight: 'bold',
+                        fontSize: 30,
+                    }, 
+                    headerTitleAlign: 'center',
+                    headerTintColor: '#FFFFFF',
+                    title: langprivacypolicy,
+                }
+            }
+            />
+            <StackScreens.Screen name='Notifications' component={Notifications}
+            options = {
+                {
+                    headerStyle: {
+                        backgroundColor: '#710193',
+                    },
+                    headerTitleStyle: {
+                        color: '#FFFFFF',
+                        fontWeight: 'bold',
+                        fontSize: 30,
+                    }, 
+                    headerTitleAlign: 'center',
+                    headerTintColor: '#FFFFFF',
+                    title: langnotifications,
+                }
+            }
+            />
             <StackScreens.Screen name='ChangeLanguage' component={ChangeLanguage}
             options = {
                 {
@@ -295,6 +329,23 @@ function ProfileStack() {
                     headerTitleAlign: 'center',
                     headerTintColor: '#FFFFFF',
                     title: langchangelanguage,
+                }
+            }
+            />
+            <StackScreens.Screen name='ChangePassword' component={ChangePassword}
+            options = {
+                {
+                    headerStyle: {
+                        backgroundColor: '#710193',
+                    },
+                    headerTitleStyle: {
+                        color: '#FFFFFF',
+                        fontWeight: 'bold',
+                        fontSize: 30,
+                    }, 
+                    headerTitleAlign: 'center',
+                    headerTintColor: '#FFFFFF',
+                    title: langchangepassword,
                 }
             }
             />

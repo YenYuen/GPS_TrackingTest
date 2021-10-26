@@ -121,16 +121,16 @@ const renderSettingsNav = () => {
             style={styles.choiceContainer}
             onPress={() => {
                 if(item.id == 'privacy') {
-
+                    navigation.navigate('PrivacyPolicy');
                 }
                 else if(item.id == 'notifications') {
-
+                    navigation.navigate('Notifications');
                 }
                 else if(item.id == 'language') {
                     navigation.navigate('ChangeLanguage');
                 }
                 else if(item.id == 'password') {
-
+                    navigation.navigate('ChangePassword');
                 }
             }}
             >
