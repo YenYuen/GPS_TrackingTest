@@ -93,7 +93,7 @@ const renderHomeNavigation = () => {
         setLangAboutUs("关于我们");
     }
     else if(language == 'tamil') {
-        setLangAboutUs('எங்களை பற்றி');
+        setLangAboutUs('எங்களை\nபற்றி');
     }
   }
 
@@ -203,5 +203,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: '#000000',
+    textAlign: 'center',
   },
 });

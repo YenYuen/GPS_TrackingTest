@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     text: {
         marginBottom: Dimensions.get('window').height * 0.05,
         color: 'grey',
+        textAlign: 'center'
     },
     button: {
         backgroundColor: '#710193',
@@ -114,5 +115,6 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontWeight: 'bold',
         fontSize: 15,
+        textAlign: 'center',
     },
 });
