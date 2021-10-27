@@ -40,13 +40,13 @@ const renderHomeNavigation = () => {
         setLangInsuranceStatus('Insurance\nStatus');
     }
     else if(language == 'malay') {
-        setLangInsuranceStatus('Status Insurans');
+        setLangInsuranceStatus('Status\nInsurans');
     }
     else if(language == 'chinese') {
         setLangInsuranceStatus("保险状况");
     }
     else if(language == 'tamil') {
-        setLangInsuranceStatus('காப்பீட்டு நிலை');
+        setLangInsuranceStatus('காப்பீட்டு\nநிலை');
     }
   }
 

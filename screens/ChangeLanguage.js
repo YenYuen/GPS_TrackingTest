@@ -4,7 +4,7 @@ import { Button, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleShee
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RNRestart from 'react-native-restart';
 
-const settingsNav = [
+const languageChoice = [
     {
         id: 'english',
         name: 'English',
@@ -56,7 +56,7 @@ const renderSettingsNav = () => {
     return(
         <SafeAreaView>
             <FlatList
-            data={settingsNav}
+            data={languageChoice}
             renderItem={renderItem}
             keyExtractor={item => `${item.id}`}
             />

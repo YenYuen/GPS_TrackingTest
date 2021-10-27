@@ -55,7 +55,7 @@ function InsuranceStack() {
 
       const langInsuranceStatus = () => {
         if(language == 'english') {
-            setLangInsuranceStatus('Insurance\nStatus');
+            setLangInsuranceStatus('Insurance Status');
         }
         else if(language == 'malay') {
             setLangInsuranceStatus('Status Insurans');
@@ -70,16 +70,16 @@ function InsuranceStack() {
     
       const langClaimInsurance = () => {
         if(language == 'english') {
-            setLangClaimInsurance('Claim\nInsurance');
+            setLangClaimInsurance('Claim Insurance');
         }
         else if(language == 'malay') {
-            setLangClaimInsurance('Tuntut\nInsurans');
+            setLangClaimInsurance('Tuntut Insurans');
         }
         else if(language == 'chinese') {
             setLangClaimInsurance("理赔保险");
         }
         else if(language == 'tamil') {
-            setLangClaimInsurance('காப்பீடு\nகோருங்கள்');
+            setLangClaimInsurance('காப்பீடு கோருங்கள்');
         }
       }
     
