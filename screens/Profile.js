@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState } from 'react';
 import { Button, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
-import { icon } from '../constants';
+import { icon, image } from '../constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const renderHomeNavigation = () => {
