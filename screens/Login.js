@@ -1,11 +1,20 @@
 import * as React from 'react';
 import {TextInput,  Button, Card, Photo, LinearGradient , Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking,  } from 'react-native';
+import { image } from '../constants'
 
 const Login = () => {
    return(    
    
 
     <View style = {styles.card}>
+        <View
+        style={styles.logoContainer}
+        >
+            <Image
+            source={image.Gojaze_Logo}
+            style={styles.logo}
+            />
+        </View>
         <View style = {styles.inputContainer}>                          
             <View style = {{marginTop:20, fontSize: 15, alignItems : 'center', color : '#FFFFFF',}}>
                 <Text> Please login to enable all features</Text>
@@ -52,10 +61,11 @@ const styles = StyleSheet.create ({
     logo: {
         width: 100,
         height: 100,
+        
     },
     logoContainer: {
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        height: Dimensions.get('window').height * 0.3,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'lightgrey',
@@ -64,13 +74,14 @@ const styles = StyleSheet.create ({
         flex:1,
         alignItems: "center",
         flexDirection: "row",
-        },
-        inputContainer : {
+        marginTop: Dimensions.get('window').height * 0.1,
+    },
+    inputContainer : {
         borderRadius: 24,
-        width: 370,
+        width: Dimensions.get('window').width * 0.9,
         padding: 10,
         backgroundColor: '#FFFFFF',
-        marginTop: 130,   
+        marginTop: Dimensions.get('window').height * 0.1,   
         elevation: 8,
         shadowOpacity: 1.35, 
     },
@@ -115,7 +126,7 @@ const styles = StyleSheet.create ({
         marginTop:8,
         fontSize:30,
         alignItems: ' center',
-    }   
+    },
 });
 
 
