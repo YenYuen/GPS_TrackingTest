@@ -49,6 +49,17 @@ const Login = () => {
                     </TouchableOpacity>
                 </View>
             </View>
+            <View
+                style={styles.buttonContainer}
+                >
+                    <TouchableOpacity
+                    style={styles.button}
+                    >
+                        <Text
+                        style={styles.btnText}
+                        >Login</Text>
+                    </TouchableOpacity>
+                </View>
         </View>
     </View>
 
@@ -111,7 +122,6 @@ const styles = StyleSheet.create ({
         fontSize: 18,
     },
     button:{
-        alignSelf: 'stretch',
         padding: 11,
         backgroundColor: '#710193',
         marginTop: 30,
@@ -119,13 +129,16 @@ const styles = StyleSheet.create ({
         width: 120,
         marginTop: 8,
         marginBottom: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     btnText:{
         color: '#FFFFFF',
         fontWeight: 'bold',
-        marginTop:8,
-        fontSize:30,
-        alignItems: ' center',
+        fontSize:30,    
+    },
+    buttonContainer: {
+        flexDirection: 'row-reverse',
     },
 });
 
