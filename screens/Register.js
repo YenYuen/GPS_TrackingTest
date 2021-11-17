@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {ScrollView} from 'react-native-gesture-handler';
-import { Button, TextInput, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking } from 'react-native';
+import { Button, TextInput, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, ScrollView, Dimensions, Image, Linking } from 'react-native';
 
 
 const Register = () => {
@@ -17,31 +16,31 @@ const Register = () => {
                         </Text>
 
                         <View style = {{marginTop: 20}}>
-                    <View style = {StyleSheet.inputContainer}>
-                        <TextInput placeholder = "Name" style = {StyleSheet.input}/>
+                    <View style = {styles.inputContainer}>
+                        <TextInput placeholder = "Name" style = {styles.input}/>
                     </View>
                     </View>
 
                 </View>
                 <View style = {{marginTop: 20}}>
-                    <View style = {StyleSheet.inputContainer}>
-                        <TextInput placeholder = "Email" style = {StyleSheet.input}/>
+                    <View style = {styles.inputContainer}>
+                        <TextInput placeholder = "Email" style = {styles.input}/>
                     </View>
                     </View>
 
                     <View style = {{marginTop: 20}}>
-                    <View style = {StyleSheet.inputContainer}>
-                        <TextInput placeholder = "password" style = {StyleSheet.input} secureTextEntry />
+                    <View style = {styles.inputContainer}>
+                        <TextInput placeholder = "password" style = {styles.input} secureTextEntry />
                     </View>
                     </View>                
 
                     <View style = {{marginTop: 20}}>
-                    <View style = {StyleSheet.inputContainer}>
-                        <TextInput placeholder = "Confirm password" style = {StyleSheet.input} secureTextEntry />
+                    <View style = {styles.inputContainer}>
+                        <TextInput placeholder = "Confirm password" style = {styles.input} secureTextEntry />
                     </View>
                     </View>    
                 
-                <View style = {StyleSheet.btnSignup}>
+                <View style = {styles.btnSignup}>
                     <Text style={{color:'#fff', fontWeight:"bold", fontSize:18 }}>Sign Up</Text>
                     </View>
 
@@ -65,7 +64,7 @@ const Register = () => {
 }
 
 
-const STYLES = StyleSheet.create ({
+const styles = StyleSheet.create ({
     inputContainer:{
         flexDirection: 'row',
         marginTop:20},
