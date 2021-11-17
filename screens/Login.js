@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { TextInput, Button, Card, Photo, LinearGradient, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking, } from 'react-native';
 import { image } from '../constants'
+import { NavigationContainer } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 
 const Login = () => {
+    
+    const navigation = useNavigation();
     return (
-
-
         <View style={styles.card}>
 
              <View style={styles.logoContainer}
@@ -21,26 +23,25 @@ const Login = () => {
                     <Text> Please login to enable all features</Text>
                 </View>
 
-                <View >
-                    <TextInput
-                        placeholder="Email"
-                        style={styles.input}
-                    />
 
-                    <View style = {{marginTop:5, marginBottom: 12}}>
-                    <TextInput 
-                        secureTextEntry={true}
-                        placeholder="Password"
-                        style={styles.input}
-                    /></View>
-                </View>
+                <View style = {{marginTop: 20}}>
+                    <View style = {styles.input}>
+                        <TextInput placeholder = "Email" style = {styles.inputText}/>
+                    </View>
+                    </View>
+
+                    <View style = {{marginTop: 20}}>
+                    <View style = {styles.input}>
+                        <TextInput placeholder = "Password" style = {styles.inputText} secureTextEntry />
+                    </View>
+                    </View>                
 
                 <View style={{ flexDirection: "row" }}>
                     <View style={{
                         flexDirection: "row",
                         flex: 0.5,
                         alignItems: "flex-start",
-                        marginTop:15,
+                        marginTop:34,
                     }}>
                         <TouchableOpacity>
                             <Text style={{ marginLeft: 8, }}>Forgot Password </Text>
@@ -49,23 +50,18 @@ const Login = () => {
                     <View style={{
                         flex: 0.5,
                         alignItems: "flex-end",
+                        marginTop:20,
                     }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {navigation.navigate('Register')}}>
                             <Text style={{ color: "#c08" , marginTop:15,}}>New user? Register now</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View
-                    style={styles.buttonContainer}
-                >
-                    <TouchableOpacity
-                        style={styles.button}
-                    >
-                        <Text
-                            style={styles.btnText}
-                        >Login</Text>
-                    </TouchableOpacity>
-                </View>
+
+                <View style = {styles.btnLogin}>
+                    <Text style={{color:'#fff', fontWeight:"bold", fontSize:18 }}>Log in</Text>
+                    </View>
+
             </View>
         </View>
     );
@@ -90,8 +86,7 @@ const styles = StyleSheet.create ({
         flex:1,
         marginTop:80,
         },
-
-        inputContainer : {
+    inputContainer : {
         borderRadius: 24,
         width: 370,
         padding: 10,
@@ -101,39 +96,32 @@ const styles = StyleSheet.create ({
         shadowOpacity: 1.35, 
     },
     input:{
-       marginTop:20,
-       
+        flexDirection: 'row',
+        marginTop:20,
+        color:'#a5a5a5',
+    },
+    inputText:{
+        color:'#a5a5a5',
+        paddingLeft:10,
+        borderBottomWidth:0.35,
+        flex:1,
+        fontSize:18,
     },
     text : {
         fontSize: 33,
         color:'#FFFFFF',
         fontWeight: 'bold',
         alignItems: 'center',
-        marginTop: 25,        
-    },
-    textInput : {
-       paddingLeft:60,
-       borderBottomWidth:0.3,
-       flex:1,
-       fontSize:18,
-       color: '#grey',
-       flexDirection:'row',
-    },
-    button:{
-       
-        backgroundColor: "#710193",
-        marginTop: 30,
-        borderRadius: 24,
-        width: 350,
-        marginTop: 12,
-        padding:15,
-        marginBottom:8,
-    },
-    btnText:{
-        color: '#FFFFFF',
-        fontWeight: 'bold',
-        fontSize:25,        
-        textAlign:'center',
+        marginTop: 25,     
+    },   
+    btnLogin:{
+        backgroundColor: '#800080',
+        height:50,
+        marginTop:20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 30,
+        marginBottom: 20,
     }   
 });
 
