@@ -1,110 +1,108 @@
 import * as React from 'react';
-import {TextInput,  Button, Card, Photo, LinearGradient , Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking,  } from 'react-native';
+import { TextInput, Button, Card, Photo, LinearGradient, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking, } from 'react-native';
 import { image } from '../constants'
 
 const Login = () => {
-   return(    
-   
+    return (
 
-    <View style = {styles.card}>
-        <View
-        style={styles.logoContainer}
+
+        <View style={styles.card}>
+
+             <View style={styles.logoContainer}
         >
             <Image
             source={image.Gojaze_Logo}
             style={styles.logo}
             />
         </View>
-        <View style = {styles.inputContainer}>                          
-            <View style = {{marginTop:20, fontSize: 15, alignItems : 'center', color : '#FFFFFF',}}>
-                <Text> Please login to enable all features</Text>
-            </View>
-            <View style= {{marginTop:20, marginBottom : 10,}}>
-                <TextInput 
-                placeholder="Email"  
-                style = {styles.input} 
-                />             
-                <TextInput 
-                secureTextEntry= {true}
-                placeholder="Password"  
-                style= {styles.input}
-                />
-            </View>
-            <View style = {{flexDirection: "row"}}>
-                <View style ={{
-                    flexDirection: "row",
-                    flex: 0.5,
-                    alignItems: "flex-start",
-                }}>
-                    <TouchableOpacity>
-                        <Text style = {{marginLeft : 8,}}>Forgot Password </Text>                  
-                    </TouchableOpacity>
+
+            <View style={styles.inputContainer}>
+                <View style={{ marginTop: 20, fontSize: 15, alignItems: 'center', color: '#FFFFFF', }}>
+                    <Text> Please login to enable all features</Text>
                 </View>
-                <View style ={{
-                    flex: 0.5,
-                    alignItems: "flex-end",
-                }}>
-                    <TouchableOpacity>
-                        <Text style = {{color : "#c08"}}>New user? Register now</Text>                  
-                    </TouchableOpacity>
+
+                <View >
+                    <TextInput
+                        placeholder="Email"
+                        style={styles.input}
+                    />
+
+                    <View style = {{marginTop:5, marginBottom: 12}}>
+                    <TextInput 
+                        secureTextEntry={true}
+                        placeholder="Password"
+                        style={styles.input}
+                    /></View>
                 </View>
-            </View>
-            <View
-                style={styles.buttonContainer}
+
+                <View style={{ flexDirection: "row" }}>
+                    <View style={{
+                        flexDirection: "row",
+                        flex: 0.5,
+                        alignItems: "flex-start",
+                        marginTop:15,
+                    }}>
+                        <TouchableOpacity>
+                            <Text style={{ marginLeft: 8, }}>Forgot Password </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{
+                        flex: 0.5,
+                        alignItems: "flex-end",
+                    }}>
+                        <TouchableOpacity>
+                            <Text style={{ color: "#c08" , marginTop:15,}}>New user? Register now</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View
+                    style={styles.buttonContainer}
                 >
                     <TouchableOpacity
-                    style={styles.button}
+                        style={styles.button}
                     >
                         <Text
-                        style={styles.btnText}
+                            style={styles.btnText}
                         >Login</Text>
                     </TouchableOpacity>
                 </View>
+            </View>
         </View>
-    </View>
-
-)};
+    );
+};
 
 const styles = StyleSheet.create ({
-   card:{
-      alignItems:"center",
-   },
+    card: {
+        alignItems: 'center',
+    },
     logo: {
-        width: 100,
-        height: 100,
-        
+        width: 130,
+        height: 130,
     },
     logoContainer: {
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height * 0.3,
+        height: Dimensions.get('window').height,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'lightgrey',
         justifyContent: "center",
         display: "flex",
         flex:1,
-        alignItems: "center",
-        flexDirection: "row",
-        marginTop: Dimensions.get('window').height * 0.1,
-    },
-    inputContainer : {
+        marginTop:80,
+        },
+
+        inputContainer : {
         borderRadius: 24,
-        width: Dimensions.get('window').width * 0.9,
+        width: 370,
         padding: 10,
         backgroundColor: '#FFFFFF',
-        marginTop: Dimensions.get('window').height * 0.1,   
+        marginTop: 100,   
         elevation: 8,
         shadowOpacity: 1.35, 
     },
     input:{
-        textAlign: "center",
-        fontSize: 18,
-        borderWidth: 1.5,
-        borderColor: "#aaa",
-        borderRadius: 30,
-        width: 340,
-        padding: 10,
-        marginVertical: 10,
+       marginTop:20,
+       
     },
     text : {
         fontSize: 33,
@@ -114,34 +112,29 @@ const styles = StyleSheet.create ({
         marginTop: 25,        
     },
     textInput : {
-        textAlign: 'center',
-        borderWidth: '1.5',
-        borderColor: '#aaa',
-        marginVertical: 10,
-        borderRadius: 30 ,
-        fontSize: 18,
+       paddingLeft:60,
+       borderBottomWidth:0.3,
+       flex:1,
+       fontSize:18,
+       color: '#grey',
+       flexDirection:'row',
     },
     button:{
-        padding: 11,
-        backgroundColor: '#710193',
+       
+        backgroundColor: "#710193",
         marginTop: 30,
-        borderRadius: 8,
-        width: 120,
-        marginTop: 8,
-        marginBottom: 8,
-        alignItems: 'center',
-        justifyContent: 'center',
+        borderRadius: 24,
+        width: 350,
+        marginTop: 12,
+        padding:15,
+        marginBottom:8,
     },
     btnText:{
         color: '#FFFFFF',
         fontWeight: 'bold',
-        fontSize:30,    
-    },
-    buttonContainer: {
-        flexDirection: 'row-reverse',
-    },
+        fontSize:25,        
+        textAlign:'center',
+    }   
 });
 
-
 export default Login;
-//Nurul
