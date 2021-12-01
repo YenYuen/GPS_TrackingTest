@@ -29,6 +29,8 @@ const Login = () => {
 
     const [ langlogin, setLangLogin ] = useState('');
 
+    const [ langHome, setLangHome ] = useState('');
+
     const [ language, setLanguage ] = useState(''); 
 
     const getLanguage = async () => {
@@ -135,6 +137,7 @@ const Login = () => {
 
 
     return (
+        
         <View style={styles.card}>
 
              <View style={styles.logoContainer}
@@ -144,6 +147,7 @@ const Login = () => {
             style={styles.logo}
             />
         </View>
+        <ScrollView showsVerticalScrollIndicator = {false}>
 
             <View style={styles.inputContainer}>
                 <View style={{ marginTop: 20, fontSize: 15, alignItems: 'center', color: '#FFFFFF', }}>
@@ -170,7 +174,7 @@ const Login = () => {
                         alignItems: "flex-start",
                         marginTop:34,
                     }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity  onPress={() => {navigation.navigate('ChangePassword')}}>
                             <Text style={{ marginLeft: 8, }}>{langforgotpassword}</Text>
                         </TouchableOpacity>
                     </View>
@@ -188,9 +192,20 @@ const Login = () => {
                 <View style = {styles.btnLogin}>
                     <Text style={{color:'#fff', fontWeight:"bold", fontSize:18 }}>{langlogin}</Text>
                     </View>
+                    
+                    <View>
+                    <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
+                            <Text style={{ color: "#c08" , marginTop:15, alignItems: 'center'}}>Home</Text>
+                        </TouchableOpacity>
+                    </View>
+              
+               
 
             </View>
+            </ScrollView>
         </View>
+        
+ 
     );
 };
 
