@@ -47,7 +47,7 @@ const Start = ({navigation}) => {
   }
 
     const navigateToHome = () => {
-      navigation.navigate('Tabs');
+      navigation.navigate('Login');
     }
 
     function loading() {

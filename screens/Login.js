@@ -170,7 +170,11 @@ const Login = () => {
                         alignItems: "flex-start",
                         marginTop:34,
                     }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                        onPress = {() => {
+                            navigation.navigate('Change Password');
+                        }}
+                        >
                             <Text style={{ marginLeft: 8, }}>{langforgotpassword}</Text>
                         </TouchableOpacity>
                     </View>

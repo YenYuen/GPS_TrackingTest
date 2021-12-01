@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Tabs from './navigation/tabs';
-import { Start, Home, GPS, Insurance, Profile } from './screens';
+import { Start, Home, GPS, Insurance, Profile, Login, Register, ChangePassword } from './screens';
 
 
 
@@ -29,6 +29,15 @@ const App = () => {
         <Stack.Screen
         options={{headerShown: false}}
         name="Start" component={Start} />
+        <Stack.Screen
+        options={{headerShown: false}}
+        name="Login" component={Login} />
+        <Stack.Screen
+        options={{headerShown: false}}
+        name="Register" component={Register} />
+        <Stack.Screen
+        options={{headerShown: true}}
+        name="Change Password" component={ChangePassword} />
         <Stack.Screen 
         options={{headerShown: false}}
         name="Tabs" component={Tabs} />
