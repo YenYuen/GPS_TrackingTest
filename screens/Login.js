@@ -194,7 +194,7 @@ const Login = () => {
                     </View>
                     
                     <View>
-                    <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
+                    <TouchableOpacity onPress={() => {navigation.navigate('Tabs')}}>
                             <Text style={{ color: "#c08" , marginTop:15, alignItems: 'center'}}>Home</Text>
                         </TouchableOpacity>
                     </View>
