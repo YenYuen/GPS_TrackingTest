@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
-import { Button, TextInput, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, ScrollView, Dimensions, Image, Linking } from 'react-native';
+import { Button, TextInput, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, ScrollView, Dimensions, Image, Linking, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -18,6 +18,10 @@ const Register = () => {
         langHaveAccount();
         langLogin();
     });
+
+    useEffect(() => {
+        validatePassword();
+    }, [{confirmPassword}, {password}]);
 
     const [ langwelcome, setLangWelcome ] = useState('');
 
@@ -209,6 +213,7 @@ const Register = () => {
         else {
             setSame(false);
         }
+        // Alert.alert(same);
     }
 
     return(
@@ -253,9 +258,19 @@ const Register = () => {
 
                     <View style = {{marginTop: 20}}>
                     <View style = {styles.inputContainer}>
-                        <TextInput placeholder = {langconfirmpassword} style = {styles.input} secureTextEntry/>
+                        <TextInput placeholder = {langconfirmpassword} style = {styles.input} secureTextEntry
+                        value={confirmPassword}
+                        onChangeText={(confirmPassword) => {setConfirmPassword(confirmPassword)}}
+                        />
                     </View>
-                     <Text>Password is not matching</Text>
+                        {same ?
+                        <Text
+                        style={{color:"#00FF00",}}
+                        >Password is matching</Text> :
+                        <Text
+                        style={{color: "#FF0000",}}
+                        >Password is not matching</Text>
+                        }
                     </View>    
                 
                 <View style = {styles.btnSignup}>
