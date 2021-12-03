@@ -194,8 +194,21 @@ const Register = () => {
 
     const [password, setPassword] = useState();
 
+    const [confirmPassword,setConfirmPassword] = useState();
+
+    const [same,setSame] = useState();
+
     const registerUser = () => {
         
+    }
+
+    const validatePassword = () => {
+        if(confirmPassword == password) {
+            setSame(true);
+        }
+        else {
+            setSame(false);
+        }
     }
 
     return(
@@ -240,7 +253,7 @@ const Register = () => {
 
                     <View style = {{marginTop: 20}}>
                     <View style = {styles.inputContainer}>
-                        <TextInput placeholder = {langconfirmpassword} style = {styles.input} secureTextEntry />
+                        <TextInput placeholder = {langconfirmpassword} style = {styles.input} secureTextEntry/>
                     </View>
                     </View>    
                 
