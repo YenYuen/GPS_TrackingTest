@@ -242,6 +242,7 @@ const Register = () => {
                     <View style = {styles.inputContainer}>
                         <TextInput placeholder = {langconfirmpassword} style = {styles.input} secureTextEntry />
                     </View>
+                     <Text>Password is not matching</Text>
                     </View>    
                 
                 <View style = {styles.btnSignup}>
