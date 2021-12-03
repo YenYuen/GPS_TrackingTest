@@ -1,26 +1,29 @@
 <?php
-    $CN = mysqli_connect("localhost","root","");
-    $DB = mysqli_select db ($CN, "cst");
+   require_once"connection.php";
+   $json = file_get_contents('php://input');
+   $obj = json_dcode($json,true);
 
-    $Name=$_POST['Name'];    
-    $Email=$_POST['Email'];
-    $Password=$_POST['Password'];
+   $username = $obj['username'];
+   $email = $obj['email'];
+   $password = $obj['password'];
 
-    $IQ="insert into user (Name,Email,Password) values ('$Name', '$Email', '$Password')";
+   $query = "SELECT * FROM user where email = '{$email}'";
+   $query_output = mysqli_query($conn, $query);
+   $count = mysqli_num_rows($query_output);
 
-    mysqli_query($CN,$IQ);
-
-    if($R)
-    {
-        $Massage= "You're successfully registered";
-    }
-    else
-    {
-        $Massage= "Please try again";
-    }
-
-    $Response[] = array ("Massage" => $Massage);
-    echo json_enode($Response);
-
+   if($count == 1) {
+       $arr = array ("result"=>"email_already_present");
+       echo json_encode($arr);       
+   }
+   elseif($count == 0){
+    $queryl = "INSERT * INTO 'user' ('email', 'password', 'username') VALUE  ('{$email}', '{$password}', '{$username}')";
+    $arr_outputl= array ('result'=>'ok');
+    echo json_encode($arr);       
+}
+else
+{
+    $arr = array ('result'=>'fail');
+    echo json_encode($arr);       
+}
 ?>
     
