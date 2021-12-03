@@ -273,9 +273,13 @@ const Register = () => {
                         }
                     </View>    
                 
-                <View style = {styles.btnSignup}>
-                    <Text style={{color:'#fff', fontWeight:"bold", fontSize:18 }}>{langsignup}</Text>
-                    </View>
+                    <TouchableOpacity
+                    disabled={!same}
+                    >
+                        <View style = {styles.btnSignup}>
+                            <Text style={{color:'#fff', fontWeight:"bold", fontSize:18 }}>{langsignup}</Text>
+                        </View>
+                    </TouchableOpacity>
 
                     <View style={{ flexDirection:'row', alignItems:'flex-end', justifyContent:'center', marginTop:40, marginBottom: 20}} >
                         <Text style= {{color:'#808080', fontWeight:'bold'}}>
