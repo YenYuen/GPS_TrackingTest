@@ -187,6 +187,17 @@ const Register = () => {
       }
 
     const navigation = useNavigation();
+
+    const [username, setUsername] = useState();
+    
+    const [email, setEmail] = useState();
+
+    const [password, setPassword] = useState();
+
+    const registerUser = () => {
+        
+    }
+
     return(
         <SafeAreaView style = {{paddingHorizontal:20, flex:1, backgroundColor:'#FFFFFF'}}>
             <ScrollView showsVerticalScrollIndicator = {false}>
@@ -201,20 +212,29 @@ const Register = () => {
 
                         <View style = {{marginTop: 20}}>
                     <View style = {styles.inputContainer}>
-                        <TextInput placeholder = {langname} style = {styles.input}/>
+                        <TextInput placeholder = {langname} style = {styles.input}
+                        value={username}
+                        onChangeText={(username) => {setUsername(username)}}
+                        />
                     </View>
                     </View>
 
                 </View>
                 <View style = {{marginTop: 20}}>
                     <View style = {styles.inputContainer}>
-                        <TextInput placeholder = {langemail} style = {styles.input}/>
+                        <TextInput placeholder = {langemail} style = {styles.input}
+                        value={email}
+                        onChangeText={(email) => {setEmail(email)}}
+                        />
                     </View>
                     </View>
 
                     <View style = {{marginTop: 20}}>
                     <View style = {styles.inputContainer}>
-                        <TextInput placeholder = {langpassword} style = {styles.input} secureTextEntry />
+                        <TextInput placeholder = {langpassword} style = {styles.input} secureTextEntry
+                        value={password}
+                        onChangeText={(password) => {setPassword(password)}}
+                        />
                     </View>
                     </View>                
 

@@ -15,15 +15,14 @@
        $arr = array ("result"=>"email_already_present");
        echo json_encode($arr);       
    }
-   elseif($count == 0){
+   else if($count == 0){
     $queryl = "INSERT * INTO 'user' ('email', 'password', 'username') VALUE  ('{$email}', '{$password}', '{$username}')";
     $arr_outputl= array ('result'=>'ok');
     echo json_encode($arr);       
-}
-else
-{
-    $arr = array ('result'=>'fail');
-    echo json_encode($arr);       
-}
+    }
+    else
+    {
+        $arr = array ('result'=>'fail');
+        echo json_encode($arr);       
+    }
 ?>
-    
