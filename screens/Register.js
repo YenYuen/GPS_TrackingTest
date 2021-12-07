@@ -192,18 +192,55 @@ const Register = () => {
 
     const navigation = useNavigation();
 
-    const [username, setUsername] = useState();
+    const [username, setUsername] = useState("");
     
-    const [email, setEmail] = useState();
+    const [email, setEmail] = useState("");
 
-    const [password, setPassword] = useState();
+    const [password, setPassword] = useState("");
 
-    const [confirmPassword,setConfirmPassword] = useState();
+    const [confirmPassword,setConfirmPassword] = useState("");
 
     const [same,setSame] = useState();
 
     const registerUser = () => {
-        
+        var Username = username;
+        var Email = email;
+        var Password = password;
+        var ConfirmPassword = confirmPassword;
+
+        if(Username.length == 0 || Email.length == 0 || Password.length == 0 || ConfirmPassword == 0) {
+            Alert.alert("Required fields are empty");
+        }
+        else {
+            var url = "http://10.0.2.2:8080/gpstracking/Register.php";
+
+            var headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            };
+
+            var data = {
+                username: Username,
+                email: Email,
+                password: Password,
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(data),
+            })
+            .then((response) => response.json())
+            .then((response) =>
+            {
+                Alert.alert(response[0].message);
+            }
+            )
+            .catch((error) => 
+            {
+                Alert.alert("Error" + error);
+            })
+        }
     }
 
     const validatePassword = () => {
@@ -213,7 +250,6 @@ const Register = () => {
         else {
             setSame(false);
         }
-        // Alert.alert(same);
     }
 
     return(
@@ -275,6 +311,9 @@ const Register = () => {
                 
                     <TouchableOpacity
                     disabled={!same}
+                    onPress={() => {
+                        registerUser();
+                    }}
                     >
                         <View style = {styles.btnSignup}>
                             <Text style={{color:'#fff', fontWeight:"bold", fontSize:18 }}>{langsignup}</Text>
