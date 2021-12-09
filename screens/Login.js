@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextInput, Button, Card, Photo, LinearGradient, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking, ScrollView } from 'react-native';
+import { TextInput, Button, Card, Photo, LinearGradient, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking, ScrollView, Alert } from 'react-native';
 import { image } from '../constants'
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -134,7 +134,86 @@ const Login = () => {
             setLangLogin('உள்நுழைய');
         }
       }
+    
+    const [email, setEmail] = useState("");
+  
+    const [password, setPassword] = useState("");
 
+    const [usernameF, setUsernameF] = useState("");
+    
+    const [emailF, setEmailF] = useState("");
+  
+    const [passwordF, setPasswordF] = useState("");
+
+    const saveUsername = async (value) => {
+        try {
+          await AsyncStorage.setItem('username', value)
+        } catch(e) {
+          console.log(e);
+        }
+    }
+
+    const saveEmail = async (value) => {
+        try {
+          await AsyncStorage.setItem('email', value)
+        } catch(e) {
+          console.log(e);
+        }
+    }
+
+    const savePassword = async (value) => {
+        try {
+          await AsyncStorage.setItem('password', value)
+        } catch(e) {
+          console.log(e);
+        }
+    }
+
+    const loginUser = () => {
+        var Email = email;
+        var Password = password;
+
+        if(Email.length == 0 || Password.length == 0) {
+            Alert.alert("Required fields are empty");
+        }
+        else {
+            var url = "http://10.0.2.2:8080/gpstracking/Login.php";
+
+            var headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            };
+
+            var data = {
+                email: Email,
+                password: Password,
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(data),
+            })
+            .then((response) => response.json())
+            .then((response) =>
+            {
+                Alert.alert(response[0].message);
+                setUsernameF(response[0].username);
+                setEmailF(response[0].email);
+                setPasswordF(response[0].password);
+            }
+            )
+            .catch((error) => 
+            {
+                Alert.alert("Error" + error);
+            })
+
+            saveUsername(usernameF);
+            saveEmail(emailF);
+            savePassword(passwordF);
+            navigation.navigate("Tabs");
+        }
+    }
 
     return (
         
@@ -157,13 +236,17 @@ const Login = () => {
 
                 <View style = {{marginTop: 20}}>
                     <View style = {styles.input}>
-                        <TextInput placeholder = {langemail} style = {styles.inputText}/>
+                        <TextInput 
+                        onChangeText = {(email) => {setEmail(email)}}
+                        placeholder = {langemail} style = {styles.inputText}/>
                     </View>
                     </View>
 
                     <View style = {{marginTop: 20}}>
                     <View style = {styles.input}>
-                        <TextInput placeholder = {langpassword} style = {styles.inputText} secureTextEntry />
+                        <TextInput 
+                        onChangeText = {(password) => {setPassword(password)}}
+                        placeholder = {langpassword} style = {styles.inputText} secureTextEntry />
                     </View>
                     </View>                
 
@@ -189,9 +272,13 @@ const Login = () => {
                     </View>
                 </View>
 
-                <View style = {styles.btnLogin}>
-                    <Text style={{color:'#fff', fontWeight:"bold", fontSize:18 }}>{langlogin}</Text>
+                <TouchableOpacity
+                onPress = {() => {loginUser()}}
+                >
+                    <View style = {styles.btnLogin}>
+                        <Text style={{color:'#fff', fontWeight:"bold", fontSize:18 }}>{langlogin}</Text>
                     </View>
+                </TouchableOpacity>
                     
                     <View>
                     <TouchableOpacity onPress={() => {navigation.navigate('Tabs')}}>
