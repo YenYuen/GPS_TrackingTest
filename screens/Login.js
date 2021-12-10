@@ -29,8 +29,6 @@ const Login = () => {
 
     const [ langlogin, setLangLogin ] = useState('');
 
-    const [ langHome, setLangHome ] = useState('');
-
     const [ language, setLanguage ] = useState(''); 
 
     const getLanguage = async () => {
@@ -139,15 +137,9 @@ const Login = () => {
   
     const [password, setPassword] = useState("");
 
-    const [usernameF, setUsernameF] = useState("");
-    
-    const [emailF, setEmailF] = useState("");
-  
-    const [passwordF, setPasswordF] = useState("");
-
     const saveUsername = async (value) => {
         try {
-          await AsyncStorage.setItem('username', value)
+          await AsyncStorage.setItem('username', JSON.stringify(value));
         } catch(e) {
           console.log(e);
         }
@@ -155,7 +147,7 @@ const Login = () => {
 
     const saveEmail = async (value) => {
         try {
-          await AsyncStorage.setItem('email', value)
+          await AsyncStorage.setItem('email', JSON.stringify(value));
         } catch(e) {
           console.log(e);
         }
@@ -163,8 +155,18 @@ const Login = () => {
 
     const savePassword = async (value) => {
         try {
-          await AsyncStorage.setItem('password', value)
+          await AsyncStorage.setItem('password', JSON.stringify(value));
         } catch(e) {
+          console.log(e);
+        }
+    }
+
+    const saveLoginStatus = async (value) => {
+        try {
+          const jsonValue = JSON.stringify(value);
+          await AsyncStorage.setItem('login', jsonValue);
+        }
+        catch(e) {
           console.log(e);
         }
     }
@@ -198,20 +200,17 @@ const Login = () => {
             .then((response) =>
             {
                 Alert.alert(response[0].message);
-                setUsernameF(response[0].username);
-                setEmailF(response[0].email);
-                setPasswordF(response[0].password);
+                saveUsername(response[0].username);
+                saveEmail(response[0].email);
+                savePassword(response[0].password);
             }
             )
             .catch((error) => 
             {
                 Alert.alert("Error" + error);
             })
-
-            saveUsername(usernameF);
-            saveEmail(emailF);
-            savePassword(passwordF);
-            navigation.navigate("Tabs");
+            saveLoginStatus("true");
+            navigation.navigate('Tabs');
         }
     }
 

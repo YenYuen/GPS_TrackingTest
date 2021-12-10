@@ -6,13 +6,36 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Start = ({navigation}) => {
 
   useEffect(() => {
+    //clearAll();
     getLanguage();
+    getLoginStatus();
   });
+
+  clearAll = async () => {
+    try {
+      await AsyncStorage.clear()
+    } catch(e) {
+      console.log(e);
+    }
+  
+    console.log('Done.')
+  }
+  
 
   const saveLanguage = async (value) => {
     try {
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem('language', jsonValue);
+    }
+    catch(e) {
+      console.log(e);
+    }
+  }
+
+  const saveLoginStatus = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value);
+      await AsyncStorage.setItem('login', jsonValue);
     }
     catch(e) {
       console.log(e);
@@ -27,8 +50,19 @@ const Start = ({navigation}) => {
       console.log(e);
     }
   }
+
+  const initialiseLogin = async () => {
+    try {
+      const jsonValue = JSON.stringify('false');
+      await AsyncStorage.setItem('login', jsonValue);
+    } catch (e) {
+      console.log(e);
+    }
+  }
   
   const [ language, setLanguage ] = useState('');
+
+  const [ loginStatus, setLoginStatus ] = useState('');
   
   const getLanguage = async () => {
     try {
@@ -40,14 +74,33 @@ const Start = ({navigation}) => {
       else{
         initialiseEnglish();
       }
-      // Alert.alert(language);
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
+  const getLoginStatus = async () => {
+    try {
+      const value = await AsyncStorage.getItem('login');
+      if(value !== null) {
+        setLoginStatus(JSON.parse(value));
+        saveLoginStatus(JSON.parse(value));
+      }
+      else{
+        initialiseLogin();
+      }
     } catch(e) {
       console.log(e);
     }
   }
 
     const navigateToHome = () => {
-      navigation.navigate('Login');
+      if(loginStatus == "false") {
+        navigation.navigate('Login');
+      }
+      else {
+        navigation.navigate('Tabs')
+      }
     }
 
     function loading() {
