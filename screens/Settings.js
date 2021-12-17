@@ -1,8 +1,9 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useState, useEffect } from 'react';
-import { Button, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking } from 'react-native';
+import { Button, Text, View, FlatList, SafeAreaView, TouchableOpacity, StyleSheet, Dimensions, Image, Linking, ScrollView } from 'react-native';
 import { icon, image } from '../constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import RNRestart from 'react-native-restart';
 
 const renderSettingsNav = () => {
     const navigation = useNavigation();
@@ -22,7 +23,25 @@ const renderSettingsNav = () => {
 
       const [ langchangepassword, setLangChangePassword ] = useState('');
 
-      const [ language, setLanguage ] = useState(''); 
+      const [ language, setLanguage ] = useState('');
+      
+
+      const [ langlogout, setLangLogout ] = useState('');
+
+    const langLogout = () => {
+        if(language == 'english') {
+            setLangLogout('Logout');
+        }
+        else if(language == 'malay') {
+            setLangLogout('Log keluar');
+        }
+        else if(language == 'chinese') {
+            setLangLogout("登出");
+        }
+        else if(language == 'tamil') {
+            setLangLogout('வெளியேறு');
+        }
+      }
 
       const getLanguage = async () => {
         try {
@@ -167,10 +186,103 @@ const renderSettingsNav = () => {
 }
 
 const Settings = ()=> {
+
+    useEffect(() => {
+        getLanguage();
+        langLogout();
+
+    });
+
+    const [ language, setLanguage ] = useState('');
+    const [ langlogout, setLangLogout ] = useState('');
+
+    const getLanguage = async () => {
+        try {
+            const value = await AsyncStorage.getItem('language');
+            if(value !== null) {
+                setLanguage(JSON.parse(value));
+            }
+        } 
+        catch(e) {
+            console.log(e);
+        }
+      }
+
+    const langLogout = () => {
+        if(language == 'english') {
+            setLangLogout('Logout');
+        }
+        else if(language == 'malay') {
+            setLangLogout('Log keluar');
+        }
+        else if(language == 'chinese') {
+            setLangLogout("登出");
+        }
+        else if(language == 'tamil') {
+            setLangLogout('வெளியேறு');
+        }
+      }
+
+      const saveUsername = async (value) => {
+        try {
+          await AsyncStorage.setItem('username', JSON.stringify(value));
+        } catch(e) {
+          console.log(e);
+        }
+    }
+
+    const saveEmail = async (value) => {
+        try {
+          await AsyncStorage.setItem('email', JSON.stringify(value));
+        } catch(e) {
+          console.log(e);
+        }
+    }
+
+    const savePassword = async (value) => {
+        try {
+          await AsyncStorage.setItem('password', JSON.stringify(value));
+        } catch(e) {
+          console.log(e);
+        }
+    }
+
+    const saveLoginStatus = async (value) => {
+        try {
+          const jsonValue = JSON.stringify(value);
+          await AsyncStorage.setItem('login', jsonValue);
+        }
+        catch(e) {
+          console.log(e);
+        }
+    }
+
+      const logOut = () => {
+        saveUsername('');
+        saveEmail('');
+        savePassword('');
+        saveLoginStatus('false');
+        RNRestart.Restart();
+      }
+
     return(
-        <SafeAreaView>
+        <ScrollView>
             {renderSettingsNav()}
-        </SafeAreaView>
+            <View
+            style={styles.logoutBtnContainer}
+            >
+                <TouchableOpacity
+                onPress={() => {
+                    logOut();
+                }}
+                style={styles.logoutBtn}
+                >
+                    <Text
+                    style={styles.logouttext}
+                    >{langlogout}</Text>
+                </TouchableOpacity>
+            </View>
+        </ScrollView>
     );
 }
 
@@ -201,9 +313,27 @@ const styles = StyleSheet.create({
     Container: {
         paddingTop: 20,
     },
+    logoutBtnContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: Dimensions.get('window').width,
+        height: 100,
+        paddingBottom: 40,
+    },
     text: {
         color: '#FFFFFF',
         fontWeight: 'bold',
         fontSize: 20,
     },
+    logoutBtn: {
+        justifyContent:'center',
+        alignContent: 'center',
+        width: 100,
+        borderWidth: 2,
+        borderColor: '#000000',
+    },
+    logouttext: {
+        color: "#000000",
+        textAlign: 'center',
+    }
 });
