@@ -161,6 +161,14 @@ const Login = () => {
         }
     }
 
+    const savePrivilege = async (value) => {
+        try {
+          await AsyncStorage.setItem('privilege', JSON.stringify(value));
+        } catch(e) {
+          console.log(e);
+        }
+    }
+
     const saveLoginStatus = async (value) => {
         try {
           const jsonValue = JSON.stringify(value);
@@ -203,6 +211,7 @@ const Login = () => {
                 saveUsername(response[0].username);
                 saveEmail(response[0].email);
                 savePassword(response[0].password);
+                savePrivilege(response[0].privilege);
             }
             )
             .catch((error) => 
