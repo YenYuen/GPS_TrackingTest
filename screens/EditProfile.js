@@ -6,6 +6,7 @@ import RNRestart from 'react-native-restart';
 const EditProfile = ()=> {
     useEffect(() => {
         getLanguage();
+        getPrivilege();
         getName();
         getEmail();
         getPassword();
@@ -15,6 +16,8 @@ const EditProfile = ()=> {
     });
 
     const [ language, setLanguage ] = useState('');
+
+    const [ privilege, setPrivilege ] = useState(); 
 
     const [ langname, setLangName ] = useState('');
 
@@ -39,6 +42,18 @@ const EditProfile = ()=> {
             const value = await AsyncStorage.getItem('language');
             if(value !== null) {
                 setLanguage(JSON.parse(value));
+            }
+        } 
+        catch(e) {
+        console.log(e);
+        }
+    }
+
+    const getPrivilege = async () => {
+        try {
+            const value = await AsyncStorage.getItem('privilege');
+            if(value !== null) {
+                setPrivilege(JSON.parse(value));
             }
         } 
         catch(e) {
